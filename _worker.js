@@ -694,7 +694,7 @@ function 配置信息(密码, 域名地址) {
 }
 
 let subParams = ['sub', 'base64', 'b64', 'clash', 'singbox', 'sb', 'surge'];
-const cmad = decodeURIComponent(atob(`dGVsZWdyYW0lMjAlRTQlQkElQTQlRTYlQjUlODElRTclQkUlQTQlMjAlRTYlOEElODAlRTYlOUMlQUYlRTUlQTQlQTclRTQlQkQlQUMlN0UlRTUlOUMlQTglRTclQkElQkYlRTUlOEYlOTElRTclODklOEMhJTNDYnIlM0UKJTNDYSUyMGhyZWYlM0QlMjdodHRwcyUzQSUyRiUyRnQubWUlMkZDTUxpdXNzc3MlMjclM0VodHRwcyUzQSUyRiUyRnQubWUlMkZDTUxpdXNzc3MlM0MlMkZhJTNFJTNDYnIlM0UKLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tJTNDYnIlM0UKZ2l0aHViJTIwJUU5JUExJUI5JUU3JTlCJUFFJUU1JTlDJUIwJUU1JTlEJTgwJTIwU3RhciFTdGFyIVN0YXIhISElM0NiciUzRQolM0NhJTIwaHJlZiUzRCUyN2h0dHBzJTNBJTJGJTJGZ2l0aHViLmNvbSUyRmNtbGl1JTJGZXBlaXVzJTI3JTNFaHR0cHMlM0ElMkYlMkZnaXRodWIuY29tJTJGY21saXUlMkZlcGVpdXMlM0MlMkZhJTNFJTNDYnIlM0UKLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tJTNDYnIlM0UKJTIzJTIzJTIzJTIzJTIzJTIzJTIzJTIzJTIzJTIzJTIzJTIzJTIzJTIzJTIzJTIzJTIzJTIzJTIzJTIzJTIzJTIzJTIzJTIzJTIzJTIzJTIzJTIzJTIzJTIzJTIzJTIzJTIzJTIzJTIzJTIzJTIzJTIzJTIzJTIzJTIzJTIzJTIzJTIzJTIzJTIzJTIzJTIzJTIzJTIzJTIzJTIzJTIzJTIzJTIzJTIzJTIzJTIzJTIzJTIzJTIzJTIzJTIzJTIz`));
+const cmad = decodeURIComponent(atob(` `));
 async function get特洛伊Config(password, hostName, sub, UA, RproxyIP, _url, fakeUserID, fakeHostName, env) {
     if (sub) {
         const match = sub.match(/^(?:https?:\/\/)?([^\/]+)/);
@@ -734,26 +734,6 @@ async function get特洛伊Config(password, hostName, sub, UA, RproxyIP, _url, f
         if ((addresses.length + addressesapi.length + addressescsv.length) == 0) {
             // 定义 Cloudflare IP 范围的 CIDR 列表
             let cfips = [
-                '103.21.244.0/24',
-                '104.16.0.0/13',
-                '104.24.0.0/14',
-                '172.64.0.0/14',
-                '104.16.0.0/14',
-                '104.24.0.0/15',
-                '141.101.64.0/19',
-                '172.64.0.0/14',
-                '188.114.96.0/21',
-                '190.93.240.0/21',
-                '162.159.152.0/23',
-                '104.16.0.0/13',
-                '104.24.0.0/14',
-                '172.64.0.0/14',
-                '104.16.0.0/14',
-                '104.24.0.0/15',
-                '141.101.64.0/19',
-                '172.64.0.0/14',
-                '188.114.96.0/21',
-                '190.93.240.0/21',
             ];
 
             // 生成符合给定 CIDR 范围的随机 IP 地址
@@ -772,9 +752,6 @@ async function get特洛伊Config(password, hostName, sub, UA, RproxyIP, _url, f
 
                 return randomIP.join('.');
             }
-            addresses = addresses.concat('127.0.0.1:1234#CFnat');
-            let counter = 1;
-            const randomPorts = httpsPorts.concat('443');
             addresses = addresses.concat(
                 cfips.map(cidr => generateRandomIPFromCIDR(cidr) + ':' + randomPorts[Math.floor(Math.random() * randomPorts.length)] + '#CF随机节点' + String(counter++).padStart(2, '0'))
             );
